@@ -1,7 +1,5 @@
 FROM node:latest
 
-RUN apk add --update --no-cache yarn nodejs postgresql-dev
-
 WORKDIR /app
 
 COPY . .
