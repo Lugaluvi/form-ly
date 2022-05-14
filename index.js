@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hi Docker!!!");
+  res.send("teste");
 });
 
-app.listen(3002);
+app.listen(8080);

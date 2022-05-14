@@ -1,26 +1,24 @@
-version: "3" ## especifica a versão do docker-compose file
+version: "3" 
 
-services: ## Define um serviço
+services: 
   postgres:
     image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
     ports: 
       - '5432:5432'
     volumes:
       - .:/usr/app/var/lib/postgresql/data
-  app: ## nome do serviço
-    build: . ## localização do dockerfile
-    command: npm start ## comando a executar
-    environment:
-      DB_SCHEMA: postgres
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_HOST: postgres
+    env_file:
+      .env
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      .env
     depends_on:
       - postgres
     ports:
-      - "3002:3002" ## redirecionamento de porta quando chegar alguma requisição na porta 3002 chama o container na porta 3002
+      - "8080:8080" 
     volumes:
-      - .:/usr/app ## monitoro a pasta atual . e envio as alterações para /usr/app
+      - .:/usr/app 
