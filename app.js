@@ -19,8 +19,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+var adminRouter = require('./routes/admin');
+var responsibleRouter = require('./routes/responsible');
+var resumeRouter = require('./routes/resume');
+var studentRouter = require('./routes/student');
+var subjectRouter = require('./routes/subject');
+var teacherRouter = require('./routes/teacher');
+var teamRouter = require('./routes/team');
+
+app.use('/admins', adminRouter);
+app.use('/responsibles', responsibleRouter);
+app.use('/resumes', resumeRouter);
+app.use('/students', studentRouter);
+app.use('/subjects', subjectRouter);
+app.use('/teachers', teacherRouter);
+app.use('/teams', teamRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
