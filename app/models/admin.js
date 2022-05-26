@@ -1,8 +1,21 @@
 const Sequelize = require("sequelize");
+const sequelize = new Sequelize(
+  process.env.DB_SCHEMA || "postgres",
+  process.env.DB_USER || "postgres",
+  process.env.DB_PASSWORD || "",
+  {
+    host: process.env.DB_HOST || "localhost",
+    port: process.env.DB_PORT || 5432,
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: process.env.DB_SSL == "true",
+    },
+  }
+);
 
-const Admin = Sequelize.define("Admin", {
+const Admin = sequelize.define("Admin", {
   id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,

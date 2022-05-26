@@ -2,9 +2,19 @@ var express = require("express");
 var router = express.Router();
 var db = require("../database");
 
+router.get("/all", function (req, res) {
+  db.Teacher.findAll()
+    .then((teachers) => {
+      res.status(200).send(JSON.stringify(teachers));
+    })
+    .catch((err) => {
+      res.status(500).send(JSON.stringify(err));
+    });
+});
+
 router.get("/:id", function (req, res) {
   db.Teacher.findByPk(req.params.id)
-    .then((Teacher) => {
+    .then((teacher) => {
       res.status(200).send(JSON.stringify(teacher));
     })
     .catch((err) => {
