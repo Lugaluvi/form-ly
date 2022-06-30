@@ -1,24 +1,12 @@
-version: "3" 
+version: '3'
+services:
 
-services: 
   postgres:
-    image: postgres
-    ports: 
-      - '5432:5432'
-    volumes:
-      - .:/usr/app/var/lib/postgresql/data
-    env_file:
-      .env
-
-  app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    env_file:
-      .env
-    depends_on:
-      - postgres
+    image: "postgres:9.6.1"
     ports:
-      - "8080:8080" 
-    volumes:
-      - .:/usr/app 
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+      POSTGRES_DB: "test"
+
