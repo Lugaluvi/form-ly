@@ -1,7 +1,29 @@
+import { ResumeController } from "../controller/ResumeController";
+
 export const ResumeRoutes = [
-  // TODO: add get method to all
-  // TODO: add get method to one
-  // TODO: add post method to save
+  {
+    method: "get",
+    route: "/resume",
+    controller: ResumeController,
+    action: "all",
+  },
+  {
+    method: "get",
+    route: "/resume/:id",
+    controller: ResumeController,
+    action: "one",
+  },
+  {
+    method: "post",
+    route: "/resume",
+    controller: ResumeController,
+    action: "save",
+  },
   // TODO: add put method to update
-  // TODO: add delete method to remove
+  {
+    method: "delete",
+    route: "/resume/:id",
+    controller: ResumeController,
+    action: "remove",
+  },
 ];

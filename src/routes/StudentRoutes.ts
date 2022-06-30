@@ -1,7 +1,29 @@
+import { StudentController } from "../controller/StudentController";
+
 export const StudentRoutes = [
-  // TODO: add get method to all
-  // TODO: add get method to one
-  // TODO: add post method to save
+  {
+    method: "get",
+    route: "/student",
+    controller: StudentController,
+    action: "all",
+  },
+  {
+    method: "get",
+    route: "/student/:id",
+    controller: StudentController,
+    action: "one",
+  },
+  {
+    method: "post",
+    route: "/student",
+    controller: StudentController,
+    action: "save",
+  },
   // TODO: add put method to update
-  // TODO: add delete method to remove
+  {
+    method: "delete",
+    route: "/student/:id",
+    controller: StudentController,
+    action: "remove",
+  },
 ];

@@ -1,7 +1,29 @@
+import { SubjectController } from "../controller/SubjectController";
+
 export const SubjectRoutes = [
-  // TODO: add get method to all
-  // TODO: add get method to one
-  // TODO: add post method to save
+  {
+    method: "get",
+    route: "/subject",
+    controller: SubjectController,
+    action: "all",
+  },
+  {
+    method: "get",
+    route: "/subject/:id",
+    controller: SubjectController,
+    action: "one",
+  },
+  {
+    method: "post",
+    route: "/subject",
+    controller: SubjectController,
+    action: "save",
+  },
   // TODO: add put method to update
-  // TODO: add delete method to remove
+  {
+    method: "delete",
+    route: "/subject/:id",
+    controller: SubjectController,
+    action: "remove",
+  },
 ];

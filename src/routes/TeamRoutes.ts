@@ -1,7 +1,29 @@
+import { TeamController } from "../controller/TeamController";
+
 export const TeamRoutes = [
-  // TODO: add get method to all
-  // TODO: add get method to one
-  // TODO: add post method to save
+  {
+    method: "get",
+    route: "/team",
+    controller: TeamController,
+    action: "all",
+  },
+  {
+    method: "get",
+    route: "/team/:id",
+    controller: TeamController,
+    action: "one",
+  },
+  {
+    method: "post",
+    route: "/team",
+    controller: TeamController,
+    action: "save",
+  },
   // TODO: add put method to update
-  // TODO: add delete method to remove
+  {
+    method: "delete",
+    route: "/team/:id",
+    controller: TeamController,
+    action: "remove",
+  },
 ];
