@@ -11,10 +11,10 @@ export class Resume {
   title: string;
 
   @Column()
-  difficulties: Array<String>;
+  difficulties: JSON;
 
   @Column()
-  difficultiesMotives: Array<String>;
+  difficultiesMotives: JSON;
 
   @Column()
   generalObservations: string;
