@@ -10,17 +10,17 @@ export class Resume {
   @Column()
   title: string;
 
-  @Column()
-  difficulties: JSON;
+  @Column({ type: 'varchar', nullable: true })
+  difficulties: JSON | null;
+
+  @Column({ type: 'varchar', nullable: true })
+  difficultiesMotives: JSON | null;
 
   @Column()
-  difficultiesMotives: JSON;
+  generalObservations: string | null;
 
   @Column()
-  generalObservations: string;
-
-  @Column()
-  behaviourAttitudes: string;
+  behaviourAttitudes: string | null;
 
   @OneToOne((type) => Student, (student) => student.id)
   students: Student[];
