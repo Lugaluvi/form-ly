@@ -1,17 +1,9 @@
 import {
   Column,
   CreateDateColumn,
-  Entity,
-  ManyToMany,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Entity, PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from 'typeorm';
-import { Responsible } from '../responsible/responsible.entity';
-import { Resume } from '../resume/resume.entity';
-import { Subject } from '../subject/subject.entity';
-import { Team } from '../team/team.entity';
 
 @Entity()
 export class Student {
@@ -19,31 +11,13 @@ export class Student {
   public id: string;
 
   @Column()
+  public registration: string;
+
+  @Column()
   public name: string;
 
-  @OneToOne(
-    () => Responsible,
-    responsible => responsible.id,
-  )
-  public responsible: Responsible;
-
-  @OneToOne(
-    () => Team,
-    team => team.id,
-  )
-  public team: Team;
-
-  @OneToMany(
-    () => Subject,
-    subject => subject.id,
-  )
-  public subjects: Subject[];
-
-  @OneToMany(
-    () => Resume,
-    resume => resume.id,
-  )
-  public resumes: Resume[];
+  @Column()
+  public age: number;
 
   @CreateDateColumn()
   public createdAt: Date;

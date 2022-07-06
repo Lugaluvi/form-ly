@@ -1,13 +1,9 @@
 import {
   Column,
   CreateDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Entity, PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from 'typeorm';
-import { Resume } from '../resume/resume.entity';
-import { Team } from '../team/team.entity';
 
 @Entity()
 export class Teacher {
@@ -22,21 +18,6 @@ export class Teacher {
 
   @Column()
   public phone: string;
-
-  @Column()
-  public password: string;
-
-  @OneToMany(
-    () => Team,
-    team => team.id,
-  )
-  public teams: Team[];
-
-  @OneToMany(
-    () => Resume,
-    resume => resume.id,
-  )
-  public resumes: Resume[];
 
   @CreateDateColumn()
   public createdAt: Date;

@@ -1,12 +1,9 @@
 import {
   Column,
   CreateDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Entity, PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from 'typeorm';
-import { Student } from '../student/student.entity';
 
 @Entity()
 export class Responsible {
@@ -21,12 +18,6 @@ export class Responsible {
 
   @Column()
   public phone: string;
-
-  @OneToMany(
-    () => Student,
-    student => student.id,
-  )
-  public students: Student[];
 
   @CreateDateColumn()
   public createdAt: Date;

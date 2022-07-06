@@ -1,13 +1,9 @@
 import {
   Column,
   CreateDateColumn,
-  Entity,
-  OneToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Entity, PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from 'typeorm';
-import { Student } from '../student/student.entity';
-import { Teacher } from '../teacher/teacher.entity';
 
 @Entity()
 export class Resume {
@@ -17,29 +13,17 @@ export class Resume {
   @Column()
   public title: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  public difficulties: JSON | null;
-
-  @Column({ type: 'varchar', nullable: true })
-  public difficultiesMotives: JSON | null;
+  @Column()
+  public difficulty: string;
 
   @Column()
-  public generalObservations: string | null;
+  public difficultyMotive: string;
 
   @Column()
-  public behaviourAttitudes: string | null;
+  public generalObservations: string;
 
-  @OneToOne(
-    () => Student,
-    student => student.id,
-  )
-  public student: Student;
-
-  @OneToOne(
-    () => Teacher,
-    teacher => teacher.id,
-  )
-  public teacher: Teacher;
+  @Column()
+  public behaviourAndAttitudes: string;
 
   @CreateDateColumn()
   public createdAt: Date;

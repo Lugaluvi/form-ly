@@ -5,7 +5,6 @@ import { ResumeModule } from './resume/resume.module';
 import { StudentModule } from './student/student.module';
 import { SubjectModule } from './subject/subject.module';
 import { TeacherModule } from './teacher/teacher.module';
-import { TeamModule } from './team/team.module';
 
 @Module({
   imports: [
@@ -15,7 +14,6 @@ import { TeamModule } from './team/team.module';
     StudentModule,
     SubjectModule,
     TeacherModule,
-    TeamModule,
   ],
 })
 export class ApiModule {}
